@@ -1,0 +1,94 @@
+/* Custom Mirror Cursor Styles */
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease;
+    will-change: transform;
+}
+
+.cursor-blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(8px);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.cursor-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+.cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Hover effect on interactive elements */
+.custom-cursor.cursor-hover {
+    transform: scale(1.5);
+}
+
+/* Hide default cursor */
+body.custom-cursor-active {
+    cursor: none;
+}
+
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [role="button"],
+body.custom-cursor-active input,
+body.custom-cursor-active textarea {
+    cursor: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile: hide custom cursor */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+
+    body.custom-cursor-active,
+    body.custom-cursor-active a,
+    body.custom-cursor-active button,
+    body.custom-cursor-active [role="button"],
+    body.custom-cursor-active input,
+    body.custom-cursor-active textarea {
+        cursor: auto;
+    }
+}

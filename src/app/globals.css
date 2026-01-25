@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "./stars.css";
+@import "./project-card.css";
+@import "./animated-stars.css";
+@import "./custom-cursor.css";
+
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+  /* Primary text */
+  --color-text-muted: #B5B5B5;
+  /* Secondary text */
+  --color-accent: #8b5cf6;
+  /* Violet */
+
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-text: var(--foreground);
+  --color-secondary-text: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-outfit);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit);
+  overflow-x: hidden;
+  background-color: #000000;
+  /* Prevent any flash of default loading */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit);
+}
+
+/* Loading screen animations */
+@keyframes gradient-slide {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-gradient-slide {
+  animation: gradient-slide 10s linear infinite reverse;
+}
