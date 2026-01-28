@@ -23,7 +23,17 @@ export default function ScrollSequence() {
         offset: ["start start", "end end"],
     });
 
-    const frameIndex = useTransform(scrollYProgress, [0, 1], [0, frameCount - 1]);
+    // Map scroll progress to 5 stages:
+    // Stage 1 (0-0.2): Welcome - frames 0 to 13
+    // Stage 2 (0.2-0.4): About Me - frames 13 to 26
+    // Stage 3 (0.4-0.6): Paragraph - frames 26 to 39 (last frame)
+    // Stage 4 (0.6-0.8): Hold on last frame
+    // Stage 5 (0.8-1.0): Skills popup appears (still on last frame)
+    const frameIndex = useTransform(
+        scrollYProgress,
+        [0, 0.2, 0.4, 0.6, 1],
+        [0, 13, 26, frameCount - 1, frameCount - 1]
+    );
 
     // 1. Handle Resize
     useEffect(() => {
@@ -122,14 +132,16 @@ export default function ScrollSequence() {
 
                     <canvas ref={canvasRef} className="block h-full w-full object-cover" />
 
-                    {/* Text Overlays */}
-                    <OverlayText start={0} end={0.25} scrollYProgress={scrollYProgress} className="items-center justify-center text-center">
+                    {/* Text Overlays - 5 Stage Progression */}
+                    {/* Stage 1 (0-20%): Welcome */}
+                    <OverlayText start={0} end={0.2} scrollYProgress={scrollYProgress} className="items-center justify-center text-center">
                         <h1 className="text-4xl font-bold tracking-tighter text-white md:text-7xl lg:text-9xl font-display">
                             Welcome
                         </h1>
                     </OverlayText>
 
-                    <OverlayText start={0.25} end={0.5} scrollYProgress={scrollYProgress} className="items-center justify-start px-4 text-left md:px-20">
+                    {/* Stage 2 (20-40%): About Me */}
+                    <OverlayText start={0.2} end={0.4} scrollYProgress={scrollYProgress} className="items-center justify-start px-4 text-left md:px-20">
                         <div>
                             <h2 className="text-3xl font-semibold text-white md:text-6xl font-display">ABOUT ME</h2>
                             <h3 className="mt-4 max-w-[280px] text-base text-white md:max-w-md md:text-xl">
@@ -139,14 +151,17 @@ export default function ScrollSequence() {
                         </div>
                     </OverlayText>
 
-                    <OverlayText start={0.5} end={0.75} scrollYProgress={scrollYProgress} className="items-center justify-end px-4 text-right md:px-20">
+                    {/* Stage 3 (40-60%): Paragraph */}
+                    <OverlayText start={0.4} end={0.6} scrollYProgress={scrollYProgress} className="items-center justify-end px-4 text-right md:px-20">
                         <div>
-                            <h2 className="text-3xl font-semibold text-white md:text-6xl font-display"></h2>
                             <h3 className="mt-4 max-w-[280px] text-base text-white md:max-w-md md:text-xl">
                                 I specialize in embedded systems, IoT and full-stack development.
                             </h3>
                         </div>
                     </OverlayText>
+
+                    {/* Stage 4 (60-80%): Last image visible (no text overlay) */}
+                    {/* Stage 5 (80-100%): Skills popup appears (handled by TechStackVShape component) */}
 
 
 
