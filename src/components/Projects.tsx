@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
-import AnimatedStars from "./AnimatedStars";
+import DotGrid from "./DotGrid";
 
 interface Project {
     title: string;
@@ -51,7 +51,21 @@ export default function Projects({ isEmbedded = false }: { isEmbedded?: boolean 
 
     return (
         <Component id="projects" className={className}>
-            {!isEmbedded && <AnimatedStars />}
+            {!isEmbedded && (
+                <div className="absolute inset-0 z-0">
+                    <DotGrid
+                        dotSize={5}
+                        gap={15}
+                        baseColor="#271E37"
+                        activeColor="#5227FF"
+                        proximity={120}
+                        shockRadius={250}
+                        shockStrength={5}
+                        resistance={750}
+                        returnDuration={1.5}
+                    />
+                </div>
+            )}
             <div className="relative z-10 flex flex-col items-center justify-center gap-12 w-full max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

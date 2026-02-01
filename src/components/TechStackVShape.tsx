@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // 1. Import Projects
 import Projects from "./Projects";
 
-import AnimatedStars from "./AnimatedStars";
+import DotGrid from "./DotGrid";
 
 export default function TechStackVShape() {
     // ... (Keep your existing icons array) ...
@@ -58,7 +58,20 @@ export default function TechStackVShape() {
                 // Added rounded-b-[3rem] to make the bottom of the projects look nice too
                 className="pointer-events-auto relative flex min-h-screen w-full flex-col items-center justify-center gap-12 rounded-t-[3rem] rounded-b-[3rem] bg-[#090a0f] overflow-hidden px-4 py-24 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
             >
-                <AnimatedStars />
+                {/* DotGrid Background */}
+                <div className="absolute inset-0 z-0">
+                    <DotGrid
+                        dotSize={5}
+                        gap={15}
+                        baseColor="#271E37"
+                        activeColor="#5227FF"
+                        proximity={120}
+                        shockRadius={250}
+                        shockStrength={5}
+                        resistance={750}
+                        returnDuration={1.5}
+                    />
+                </div>
                 <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/20 to-transparent rounded-t-[3rem] z-10" />
 
                 <motion.div style={{ y }} className="flex flex-col items-center gap-12 w-full z-10">
