@@ -179,13 +179,15 @@ const DotGrid = ({
         let ro: ResizeObserver | null = null;
         let usesFallback = false;
 
-        // Check if ResizeObserver is available using type casting to avoid narrowing 'window' to 'never' in the else block
-        if (typeof window.ResizeObserver !== 'undefined') {
+        // Check if ResizeObserver is available safely
+        const hasResizeObserver = typeof window !== 'undefined' && 'ResizeObserver' in window;
+
+        if (hasResizeObserver) {
             ro = new ResizeObserver(buildGrid);
             wrapperRef.current && ro.observe(wrapperRef.current);
         } else {
             usesFallback = true;
-            window.addEventListener('resize', buildGrid);
+            (window as Window).addEventListener('resize', buildGrid);
         }
 
         return () => {
