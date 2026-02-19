@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Instagram, Menu, X, Github, Linkedin } from "lucide-react";
+import { Instagram, MoreHorizontal, X, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
             </div>
 
             {/* 2. Center (The Pill - Desktop) */}
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
                 <div className="flex items-center gap-10 rounded-full border border-white/5 bg-white/10 px-10 py-2 backdrop-blur-md">
                     {["About me", "Skills", "Projects", "Contact me"].map((item) => (
                         <Link
@@ -46,7 +46,7 @@ export default function Navbar() {
             </div>
 
             {/* 3. Right Side (Socials - Desktop) */}
-            <div className="hidden items-center gap-3 md:flex">
+            <div className="hidden items-center gap-3 xl:flex">
                 {socialLinks.map(({ Icon, href, label }, i) => (
                     <div key={i} className="relative group">
                         <a
@@ -76,11 +76,11 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-                className="block text-primary-text md:hidden"
+                className="block text-primary-text xl:hidden"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
             >
-                {isOpen ? <X /> : <Menu />}
+                {isOpen ? <X /> : <MoreHorizontal />}
             </button>
 
             {/* === MOBILE MENU OVERLAY (Updated for Glass Theme) === */}
@@ -90,7 +90,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     // 👇 UPDATED CLASSES HERE
-                    className="absolute left-0 top-16 w-full border-b border-white/10 bg-black/30 px-6 py-6 backdrop-blur-xl md:hidden"
+                    className="absolute left-0 top-16 w-full border-b border-white/10 bg-black/30 px-6 py-6 backdrop-blur-xl xl:hidden"
                 >
                     <div className="flex flex-col space-y-6">
                         {["About me", "Skills", "Projects", "Contact me"].map((item) => (
