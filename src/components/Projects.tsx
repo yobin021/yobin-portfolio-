@@ -33,7 +33,7 @@ const projects: Project[] = [
         title: "Slice",
         description: "slice 2025 national level technical Symposium.",
         tags: ["HTML", "CSS", "JavaScript"],
-        links: { github: "https://github.com/yobin021/slice-2025", demo: "https://slice2025.in/" },
+        links: { github: "https://github.com/yobin021/slice2025", demo: "https://slice2025.in/" },
     },
     {
         title: "Portfolio",
