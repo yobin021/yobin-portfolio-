@@ -115,7 +115,7 @@ export default function ContactForm({ isEmbedded = false }: { isEmbedded?: boole
                 </div>
             )}
 
-            <div className={`${isEmbedded ? 'w-full max-w-4xl' : 'contact-container'} relative z-10`}>
+            <div className={`${isEmbedded ? 'w-full max-w-4xl flex flex-col items-center justify-center' : 'contact-container'} relative z-10`}>
                 {/* Contact Form Wrapper - Centered */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
