@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Instagram, MoreHorizontal, X, Github, Linkedin } from "lucide-react";
+import { Instagram, Menu, X, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -80,7 +80,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
             >
-                {isOpen ? <X /> : <MoreHorizontal />}
+                {isOpen ? <X /> : <Menu />}
             </button>
 
             {/* === MOBILE MENU OVERLAY (Updated for Glass Theme) === */}
