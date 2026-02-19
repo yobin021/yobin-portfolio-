@@ -30,12 +30,6 @@ const projects: Project[] = [
         links: { github: "https://github.com/yobin021/smart_classroom", demo: "#" },
     },
     {
-        title: "Slice",
-        description: "slice 2025 national level technical Symposium.",
-        tags: ["HTML", "CSS", "JavaScript"],
-        links: { github: "https://github.com/yobin021/slice2025", demo: "https://slice2025.in/" },
-    },
-    {
         title: "Portfolio",
         description: "This portfolio showcases my journey as an Electronics and Communication Engineer with a strong interest in embedded systems, robotics, and web development.",
         tags: ["TypeScript", "JavaScript", "CSS"],

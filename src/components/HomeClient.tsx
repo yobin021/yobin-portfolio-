@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import ScrollSequence from "@/components/ScrollSequence";
 import TechStackVShape from "@/components/TechStackVShape";
-import ContactForm from "@/components/ContactForm";
+
 import Loader from "@/components/Loader";
 
 export default function HomeClient() {
@@ -31,7 +31,7 @@ export default function HomeClient() {
             <Navbar />
             <ScrollSequence />
             <TechStackVShape />
-            <ContactForm />
+
         </main>
     );
 }

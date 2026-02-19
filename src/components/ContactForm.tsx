@@ -18,7 +18,7 @@ interface FormErrors {
     message?: string;
 }
 
-export default function ContactForm() {
+export default function ContactForm({ isEmbedded = false }: { isEmbedded?: boolean }) {
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
@@ -93,24 +93,29 @@ export default function ContactForm() {
         }
     };
 
-    return (
-        <section id="contact-me" className="contact-section">
-            {/* Background Animation */}
-            <div className="absolute inset-0 z-0">
-                <DotGrid
-                    dotSize={5}
-                    gap={15}
-                    baseColor="#271E37"
-                    activeColor="#5227FF"
-                    proximity={120}
-                    shockRadius={250}
-                    shockStrength={5}
-                    resistance={750}
-                    returnDuration={1.5}
-                />
-            </div>
+    const Component = isEmbedded ? "div" : "section";
+    const className = isEmbedded ? "w-full py-24 flex justify-center" : "contact-section";
 
-            <div className="contact-container relative z-10">
+    return (
+        <Component id="contact-me" className={className}>
+            {/* Background Animation - Only show if NOT embedded */}
+            {!isEmbedded && (
+                <div className="absolute inset-0 z-0">
+                    <DotGrid
+                        dotSize={5}
+                        gap={15}
+                        baseColor="#271E37"
+                        activeColor="#5227FF"
+                        proximity={120}
+                        shockRadius={250}
+                        shockStrength={5}
+                        resistance={750}
+                        returnDuration={1.5}
+                    />
+                </div>
+            )}
+
+            <div className={`${isEmbedded ? 'w-full max-w-4xl' : 'contact-container'} relative z-10`}>
                 {/* Contact Form Wrapper - Centered */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -196,6 +201,6 @@ export default function ContactForm() {
                     </form>
                 </motion.div>
             </div>
-        </section>
+        </Component>
     );
 }

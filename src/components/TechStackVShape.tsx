@@ -6,6 +6,7 @@ import { SiC, SiPostgresql, SiMysql, SiInternetcomputer } from "react-icons/si";
 import { motion, useScroll, useTransform } from "framer-motion";
 // 1. Import Projects
 import Projects from "./Projects";
+import ContactForm from "./ContactForm";
 
 import DotGrid from "./DotGrid";
 
@@ -103,6 +104,11 @@ export default function TechStackVShape() {
                 {/* This allows Projects to exist INSIDE the same glass container */}
                 <div className="w-full mt-12">
                     <Projects isEmbedded={true} />
+                </div>
+
+                {/* 3. INSERT CONTACT FORM HERE */}
+                <div className="w-full">
+                    <ContactForm isEmbedded={true} />
                 </div>
 
             </motion.div>
