@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./stars.css";
 @import "./project-card.css";
-@import "./animated-stars.css";
+
 @import "./custom-cursor.css";
 
 :root {

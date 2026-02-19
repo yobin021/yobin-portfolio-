@@ -31,7 +31,7 @@ export default function Navbar() {
             {/* 2. Center (The Pill - Desktop) */}
             <div className="hidden md:block">
                 <div className="flex items-center gap-10 rounded-full border border-white/5 bg-white/10 px-10 py-2 backdrop-blur-md">
-                    {["About me", "Skills", "Projects"].map((item) => (
+                    {["About me", "Skills", "Projects", "Contact me"].map((item) => (
                         <Link
                             key={item}
                             href={`#${item.toLowerCase().replace(/ /g, "-")}`}
@@ -93,7 +93,7 @@ export default function Navbar() {
                     className="absolute left-0 top-16 w-full border-b border-white/10 bg-black/30 px-6 py-6 backdrop-blur-xl md:hidden"
                 >
                     <div className="flex flex-col space-y-6">
-                        {["About me", "Skills", "Projects"].map((item) => (
+                        {["About me", "Skills", "Projects", "Contact me"].map((item) => (
                             <Link
                                 key={item}
                                 href={`#${item.toLowerCase().replace(/ /g, "-")}`}

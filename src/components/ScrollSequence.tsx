@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import NextImage from "next/image";
 
 const frameCount = 40;
 const framePaths = Array.from(
@@ -135,19 +136,33 @@ export default function ScrollSequence() {
                     {/* Text Overlays - 5 Stage Progression */}
                     {/* Stage 1 (0-20%): Welcome */}
                     <OverlayText start={0} end={0.2} scrollYProgress={scrollYProgress} className="items-center justify-center text-center">
-                        <h1 className="text-4xl font-bold tracking-tighter text-white md:text-7xl lg:text-9xl font-display">
+                        <h1 className="text-6xl font-bold tracking-tighter text-white md:text-7xl lg:text-9xl font-display">
                             Welcome
                         </h1>
                     </OverlayText>
 
                     {/* Stage 2 (20-40%): About Me */}
-                    <OverlayText start={0.2} end={0.4} scrollYProgress={scrollYProgress} className="items-center justify-start px-4 text-left md:px-20">
-                        <div>
-                            <h2 className="text-3xl font-semibold text-white md:text-6xl font-display">ABOUT ME</h2>
-                            <h3 className="mt-4 max-w-[280px] text-base text-white md:max-w-md md:text-xl">
-                                I am a passionate Electronics and Communication Engineering student
-                                from Loyola-ICAM College of Engineering and Technology.
-                            </h3>
+                    <OverlayText start={0.2} end={0.4} scrollYProgress={scrollYProgress} className="items-center justify-center px-4 md:px-20">
+                        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto">
+                            <div className="mb-8 md:mb-0 md:mr-12 md:w-1/3 flex justify-center">
+                                <div className="relative w-48 h-48 md:w-80 md:h-80 overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl">
+                                    <NextImage
+                                        src="/profile_photo.png"
+                                        alt="Profile Photo"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 192px, 320px"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                            <div className="text-left md:w-1/2">
+                                <h2 className="text-4xl font-bold tracking-tighter text-white md:text-6xl font-display">ABOUT ME</h2>
+                                <h3 className="mt-4 text-base text-white md:text-xl leading-relaxed">
+                                    I am a passionate Electronics and Communication Engineering student
+                                    from Loyola-ICAM College of Engineering and Technology.
+                                </h3>
+                            </div>
                         </div>
                     </OverlayText>
 

@@ -24,6 +24,12 @@ const projects: Project[] = [
         links: { github: "https://github.com/yobin021/bluseques", demo: "#" },
     },
     {
+        title: "Smart classroom",
+        description: "Smart Classroom Automation uses Raspberry Pi 4 and a webcam to detect a person's position in a classroom. The room is divided into zones, and only the fan and light in the occupied zone turn ON automatically. When no person is detected, devices turn OFF after a delay, saving energy.",
+        tags: ["Python"],
+        links: { github: "https://github.com/yobin021/smart_classroom", demo: "#" },
+    },
+    {
         title: "Slice",
         description: "slice 2025 national level technical Symposium.",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -35,7 +41,9 @@ const projects: Project[] = [
         tags: ["TypeScript", "JavaScript", "CSS"],
         links: { github: "https://github.com/yobin021/yobin-portfolio-", demo: "#" },
     },
+
 ];
+
 
 export default function Projects({ isEmbedded = false }: { isEmbedded?: boolean }) {
 
@@ -74,7 +82,7 @@ export default function Projects({ isEmbedded = false }: { isEmbedded?: boolean 
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-center"
                 >
-                    <h2 className="text-4xl font-bold tracking-tighter md:text-5xl font-display text-white">Projects</h2>
+                    <h2 className="text-4xl font-bold tracking-tighter text-white md:text-6xl font-display">Projects</h2>
                     <p className="mt-4 text-gray-400">Some things I&apos;ve built.</p>
                 </motion.div>
 
