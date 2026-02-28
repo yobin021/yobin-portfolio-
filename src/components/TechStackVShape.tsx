@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiC, SiPostgresql, SiMysql, SiInternetcomputer } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaReact, FaNodeJs, FaGithub, FaLaptopCode, FaWindows, FaLinux } from "react-icons/fa";
+import { SiC, SiPostgresql, SiMysql, SiInternetcomputer, SiGit, SiArduino, SiPostman } from "react-icons/si";
 import { motion, useScroll, useTransform } from "framer-motion";
 // 1. Import Projects
 import Projects from "./Projects";
@@ -19,24 +19,36 @@ export default function TechStackVShape() {
             { Icon: FaCss3Alt, color: "text-blue-500", name: "CSS" },
             { Icon: FaJs, color: "text-yellow-400", name: "JavaScript" },
             { Icon: FaPython, color: "text-blue-400", name: "Python" },
+            { Icon: FaReact, color: "text-cyan-400", name: "React" },
         ],
         // Row 2
         [
             { Icon: SiC, color: "text-blue-600", name: "C Programming" },
-            { Icon: FaReact, color: "text-cyan-400", name: "React" },
             { Icon: FaNodeJs, color: "text-green-500", name: "Node.js" },
-        ],
-        // Row 3
-        [
             { Icon: SiInternetcomputer, color: "text-purple-500", name: "Motoko" },
             { Icon: SiPostgresql, color: "text-blue-300", name: "PostgreSQL" },
         ],
-        // Row 4
+        // Row 3
         [
             { Icon: SiMysql, color: "text-blue-500", name: "MySQL" },
+            { Icon: SiGit, color: "text-orange-600", name: "Git" },
+            { Icon: FaGithub, color: "text-gray-300", name: "GitHub" },
+        ],
+        // Row 4
+        [
+            { Icon: SiArduino, color: "text-teal-500", name: "Arduino IDE" },
+            { Icon: SiPostman, color: "text-orange-500", name: "Postman" },
+            { Icon: FaLinux, color: "text-yellow-500", name: "Linux" },
+             
+        ],
+        // Row 5
+        [
+            
+            { Icon: FaLaptopCode, color: "text-teal-300", name: "Thonny IDE" },
         ],
     ];
 
+    
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,

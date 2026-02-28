@@ -30,10 +30,22 @@ const projects: Project[] = [
         links: { github: "https://github.com/yobin021/smart_classroom", demo: "#" },
     },
     {
+        title: "Parking-today",
+        description: "This project is a Raspberry Pi based ANPR system that detects vehicles using YOLO, captures the license plate, extracts text using OCR, validates Indian plate formats, and updates real-time parking entry/exit status with fee calculation using Supabase database and FastAPI integration.",
+        tags: ["Python", "Raspberry Pi", "YOLO", "OCR", "Supabase", "FastAPI"],
+        links: { github: "https://github.com/yobin021/Parking-today", demo: "#" },
+    },
+    {
         title: "Portfolio",
         description: "This portfolio showcases my journey as an Electronics and Communication Engineer with a strong interest in embedded systems, robotics, and web development.",
         tags: ["TypeScript", "JavaScript", "CSS"],
         links: { github: "https://github.com/yobin021/yobin-portfolio-", demo: "#" },
+    },
+    {
+        title: "Slice2025",
+        description: "Slice 2025 national level technical Symposium",
+        tags: ["HTML", "CSS", "JavaScript"],
+        links: { github: "https://github.com/yobin021/slice2025", demo: "https://slice2025.in/" },
     },
 
 ];
