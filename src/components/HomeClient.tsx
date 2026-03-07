@@ -5,25 +5,16 @@ import Navbar from "@/components/Navbar";
 import ScrollSequence from "@/components/ScrollSequence";
 import TechStackVShape from "@/components/TechStackVShape";
 
-import Loader from "@/components/Loader";
-
 export default function HomeClient() {
-    const [loading, setLoading] = useState(true);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-        // Show loader for 2 seconds
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-
-        return () => clearTimeout(timer);
     }, []);
 
-    // Always show loader until mounted and timer completes
-    if (!mounted || loading) {
-        return <Loader />;
+    // Always wait until mounted to avoid hydration mismatch
+    if (!mounted) {
+        return null;
     }
 
     return (

@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "./stars.css";
 @import "./project-card.css";
-
-@import "./custom-cursor.css";
-
 :root {
   --background: #050505;
   --foreground: #ededed;

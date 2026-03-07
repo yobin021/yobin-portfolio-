@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import NextImage from "next/image";
+import Loader from "./Loader";
 
 const frameCount = 40;
 const framePaths = Array.from(
@@ -15,6 +16,7 @@ export default function ScrollSequence() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isMinTimePassed, setIsMinTimePassed] = useState(false);
 
     // Track window dimensions
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -23,6 +25,14 @@ export default function ScrollSequence() {
         target: containerRef,
         offset: ["start start", "end end"],
     });
+
+    // Enforce 150ms minimum loading time
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsMinTimePassed(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Map scroll progress to 5 stages:
     // Stage 1 (0-0.2): Welcome - frames 0 to 13
@@ -120,13 +130,13 @@ export default function ScrollSequence() {
         });
 
         return () => unsubscribe();
-    }, [frameIndex, images, dimensions]);
+    }, [frameIndex, images, dimensions, dimensions.width, dimensions.height, isLoading, isMinTimePassed]);
 
     return (
         <div id="about-me" ref={containerRef} className="relative h-[400vh] w-full">
-            {isLoading ? (
+            {(isLoading || !isMinTimePassed) ? (
                 <div className="sticky top-0 flex h-screen w-full items-center justify-center bg-background text-primary-text">
-                    <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent border-t-transparent" />
+                    <Loader />
                 </div>
             ) : (
                 <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
